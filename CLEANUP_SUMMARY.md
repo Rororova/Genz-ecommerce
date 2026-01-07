@@ -61,8 +61,10 @@
 Make sure your `.env` file has:
 ```
 SUPABASE_URL=your_supabase_project_url
-SUPABASE_KEY=your_supabase_anon_key
+SUPABASE_KEY=your_supabase_service_role_key
 ```
+
+**Important:** Use the **service role key** (not the anon key) since this is for server-side operations. The service role key bypasses Row Level Security and should be kept secret.
 
 You can run the `SUPABASE_SCHEMA.sql` file in your Supabase SQL editor to set up all tables.
 
