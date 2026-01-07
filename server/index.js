@@ -571,7 +571,7 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
     console.error('Newsletter error:', error)
     res.status(500).json({
       success: false,
-      message: 'Failed to subscribe'
+      message: error.message || 'Failed to subscribe'
     })
   }
 })

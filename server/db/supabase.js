@@ -350,22 +350,30 @@ export const supabaseProvider = {
             .select('*')
             .eq('email', email)
             .single();
-        if (error && error.code !== 'PGRST116') throw error;
+
+        if (error) {
+            if (error.code === 'PGRST116') return null;
+            if (error.code === '42P01') throw new Error('Table "newsletter_subscriptions" not found. Please run SUPABASE_SCHEMA.sql.');
+            throw error;
+        }
         return data;
     },
     async createSubscription(data) {
-        await this.client.from('newsletter_subscriptions').insert([data]);
+        const { error } = await this.client.from('newsletter_subscriptions').insert([data]);
+        if (error) throw error;
     },
     async reactivateSubscription(email, ip, ua) {
-        await this.client
+        const { error } = await this.client
             .from('newsletter_subscriptions')
             .update({ status: 'active', subscribed_at: new Date(), ip_address: ip, user_agent: ua })
             .eq('email', email);
+        if (error) throw error;
     },
     async unsubscribeSubscription(email) {
-        await this.client
+        const { error } = await this.client
             .from('newsletter_subscriptions')
             .update({ status: 'unsubscribed' })
             .eq('email', email);
+        if (error) throw error;
     }
 };
