@@ -576,6 +576,84 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
   }
 })
 
+app.get('/api/newsletter/subscribe', (req, res) => {
+  res.status(405).json({
+    success: false,
+    message: 'Method Not Allowed. Please use POST to subscribe.'
+  })
+})
+
+app.post('/api/newsletter/unsubscribe', async (req, res) => {
+  try {
+    const { email } = req.body
+
+    if (!email) {
+      return res.status(400).json({ success: false, message: 'Email required' })
+    }
+
+    await db.unsubscribeSubscription(email.toLowerCase())
+
+    res.json({
+      success: true,
+      message: 'You have been unsubscribed from the COOL CLUB. Sad to see you go!'
+    })
+  } catch (error) {
+    console.error('Newsletter unsubscribe error:', error)
+    res.status(500).json({ success: false, message: 'Failed to unsubscribe' })
+  }
+})
+
+// ============================================
+// ARTICLES ENDPOINTS (Alias for Forum Posts)
+// ============================================
+
+app.get('/api/articles', async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1
+    const limit = parseInt(req.query.limit) || 6
+    const offset = (page - 1) * limit
+    const category = req.query.category
+    const featured = req.query.featured === 'true' ? true : (req.query.featured === 'false' ? false : undefined);
+
+    const posts = await db.getPosts({ category, featured, limit, offset });
+    const total = await db.getPostCount({ category, featured });
+    const totalPages = Math.ceil(total / limit)
+
+    res.json({
+      success: true,
+      data: posts,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages,
+        hasMore: page < totalPages
+      }
+    })
+  } catch (error) {
+    console.error('Error fetching articles:', error)
+    res.status(500).json({ success: false, message: 'Failed to fetch articles' })
+  }
+})
+
+app.get('/api/articles/:slug', async (req, res) => {
+  try {
+    const { slug } = req.params
+    const post = await db.getPostBySlug(slug);
+
+    if (!post) {
+      return res.status(404).json({ success: false, message: 'Article not found' })
+    }
+
+    await db.incrementPostViews(post.id || post._id);
+
+    res.json({ success: true, data: post })
+  } catch (error) {
+    console.error('Error fetching article:', error)
+    res.status(500).json({ success: false, message: 'Failed to fetch article' })
+  }
+})
+
 // Export app for Vercel
 export default app;
 

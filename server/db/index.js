@@ -104,6 +104,7 @@ class DatabaseManager {
     async findSubscription(email) { await this._ensureProvider(); return this.provider.findSubscription(email); }
     async createSubscription(data) { await this._ensureProvider(); return this.provider.createSubscription(data); }
     async reactivateSubscription(e, i, u) { await this._ensureProvider(); return this.provider.reactivateSubscription(e, i, u); }
+    async unsubscribeSubscription(email) { await this._ensureProvider(); return this.provider.unsubscribeSubscription(email); }
 }
 
 export const dbRequest = new DatabaseManager();

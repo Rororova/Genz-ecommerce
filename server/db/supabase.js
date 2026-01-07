@@ -361,5 +361,11 @@ export const supabaseProvider = {
             .from('newsletter_subscriptions')
             .update({ status: 'active', subscribed_at: new Date(), ip_address: ip, user_agent: ua })
             .eq('email', email);
+    },
+    async unsubscribeSubscription(email) {
+        await this.client
+            .from('newsletter_subscriptions')
+            .update({ status: 'unsubscribed' })
+            .eq('email', email);
     }
 };
