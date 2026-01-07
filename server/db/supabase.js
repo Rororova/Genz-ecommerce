@@ -326,21 +326,51 @@ export const supabaseProvider = {
             .eq('trending', true)
             .order('usage_count', { ascending: false })
             .limit(10);
-        return data || [];
+
+        if (!data || data.length === 0) {
+            // Fallback for "preloaded" look if DB is empty
+            return [
+                { tag: 'SIGMA', usage_count: 100 },
+                { tag: 'CHAIRS', usage_count: 80 },
+                { tag: 'FURNITURE', usage_count: 50 },
+                { tag: 'OHIO', usage_count: 40 },
+                { tag: 'RIZZ', usage_count: 30 }
+            ];
+        }
+        return data;
     },
 
     // --- Categories ---
     async getCategories() {
-        // Group by in Supabase client is limited. Custom SQL via RPC or just fetch all and group js (bad for perf but ok for small apps).
-        // Or create a view.
-        // For MVP, returning empty or fetching raw
-        // Let's assume we have an RPC or view 'get_category_counts'
-        const { data, error } = await this.client.rpc('get_category_counts');
+        // Fetch all categories to aggregate manually since counting RPC is missing
+        const { data, error } = await this.client
+            .from('forum_posts')
+            .select('category')
+            .eq('published', true);
+
         if (error) {
-            console.warn('Supabase categories RPC missing, returning empty.');
-            return [];
+            console.error('Error fetching categories:', error);
+            // Fallback
+            return [
+                { name: 'LIFESTYLE', count: 0 },
+                { name: 'FURNITURE', count: 0 }
+            ];
         }
-        return data;
+
+        // Aggregate counts
+        const counts = {};
+        if (data) {
+            data.forEach(post => {
+                if (post.category) {
+                    counts[post.category] = (counts[post.category] || 0) + 1;
+                }
+            });
+        }
+
+        return Object.keys(counts).map(key => ({
+            name: key,
+            count: counts[key]
+        }));
     },
 
     // --- Newsletter ---
