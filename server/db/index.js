@@ -11,20 +11,28 @@ class DatabaseManager {
 
     async connect() {
         // Use Supabase as primary database
-        if (process.env.SUPABASE_URL && process.env.SUPABASE_KEY) {
+        const url = process.env.SUPABASE_URL;
+        const key = process.env.SUPABASE_KEY;
+
+        if (url && key) {
             try {
                 console.log('Attempting to connect to Supabase...');
-                await supabaseProvider.connect(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+                console.log(`Supabase URL provided: ${url.substring(0, 15)}...`);
+                await supabaseProvider.connect(url, key);
                 this.provider = supabaseProvider;
                 console.log('Using database provider: Supabase');
                 return;
             } catch (err) {
                 console.error('Supabase connection failed:', err.message);
-                throw new Error('Supabase connection failed. Please check your SUPABASE_URL and SUPABASE_KEY in .env configuration.');
+                throw new Error(`Supabase connection failed: ${err.message}. Check your SUPABASE_URL and SUPABASE_KEY.`);
             }
         }
 
-        throw new Error('No Supabase credentials found. Please set SUPABASE_URL and SUPABASE_KEY in your .env file.');
+        const missing = [];
+        if (!url) missing.push('SUPABASE_URL');
+        if (!key) missing.push('SUPABASE_KEY');
+
+        throw new Error(`Missing Supabase credentials: ${missing.join(', ')}. Please set these variables in your .env file or Vercel project settings.`);
     }
 
     // Proxy methods to current provider
