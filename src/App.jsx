@@ -8,6 +8,7 @@ import CreatePost from './pages/CreatePost'
 import Auth from './pages/Auth'
 import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
+import About from './pages/About'
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         {/* Product routes */}
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+        {/* About route */}
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   )

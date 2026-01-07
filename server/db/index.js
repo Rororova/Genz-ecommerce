@@ -1,6 +1,5 @@
 
 import dotenv from 'dotenv';
-import { mongoProvider } from './mongo.js';
 import { supabaseProvider } from './supabase.js';
 
 dotenv.config();
@@ -11,21 +10,7 @@ class DatabaseManager {
     }
 
     async connect() {
-        // Priority 1: MongoDB
-        if (process.env.MONGODB_URI) {
-            try {
-                console.log('Attempting to connect to MongoDB...');
-                await mongoProvider.connect(process.env.MONGODB_URI);
-                this.provider = mongoProvider;
-                console.log('Using database provider: MongoDB');
-                return;
-            } catch (err) {
-                console.error('MongoDB connection failed:', err.message);
-                console.log('Falling back to next provider...');
-            }
-        }
-
-        // Priority 2: Supabase
+        // Use Supabase as primary database
         if (process.env.SUPABASE_URL && process.env.SUPABASE_KEY) {
             try {
                 console.log('Attempting to connect to Supabase...');
@@ -35,10 +20,11 @@ class DatabaseManager {
                 return;
             } catch (err) {
                 console.error('Supabase connection failed:', err.message);
+                throw new Error('Supabase connection failed. Please check your SUPABASE_URL and SUPABASE_KEY in .env configuration.');
             }
         }
 
-        throw new Error('No available database connection could be established. Please check your .env configuration.');
+        throw new Error('No Supabase credentials found. Please set SUPABASE_URL and SUPABASE_KEY in your .env file.');
     }
 
     // Proxy methods to current provider
