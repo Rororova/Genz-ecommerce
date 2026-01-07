@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -9,6 +9,7 @@ const CheckoutPayment = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [details, setDetails] = useState(null);
+    const [showTemplatePopup, setShowTemplatePopup] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('auth_token');
@@ -25,7 +26,12 @@ const CheckoutPayment = () => {
         }
     }, [navigate]);
 
-    const handlePayment = async () => {
+    const handlePaymentClick = () => {
+        setShowTemplatePopup(true);
+    };
+
+    const confirmPayment = async () => {
+        setShowTemplatePopup(false);
         setLoading(true);
         // Simulate payment processing
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -40,14 +46,42 @@ const CheckoutPayment = () => {
     if (!details) return null;
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen relative">
+            {/* Template Popup */}
+            {showTemplatePopup && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+                    <div className="bg-white border-4 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] max-w-md w-full text-center">
+                        <iconify-icon icon="lucide:alert-triangle" width="48" className="text-yellow-400 mb-4"></iconify-icon>
+                        <h2 className="font-syne text-3xl font-bold mb-4 uppercase">Wait A Minute!</h2>
+                        <p className="font-bold text-lg mb-2">THIS IS A TEMPLATE</p>
+                        <p className="text-gray-600 mb-8">
+                            No real money will be charged. This is a demonstration of the payment flow.
+                            Do you want to proceed nicely?
+                        </p>
+                        <div className="flex flex-col gap-4">
+                            <button
+                                onClick={confirmPayment}
+                                className="w-full py-3 bg-lime-400 text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                            >
+                                Yes, Complete Order
+                            </button>
+                            <button
+                                onClick={() => setShowTemplatePopup(false)}
+                                className="w-full py-3 bg-white text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-gray-100 transition-colors"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
             <Nav />
             <div className="bg-[#fafafa] min-h-screen py-12 px-6">
                 <div className="max-w-3xl mx-auto">
                     <div className="flex items-center gap-4 mb-8 text-sm font-bold opacity-50">
-                        <span>CART</span>
+                        <Link to="/cart" className="hover:underline">CART</Link>
                         <span>/</span>
-                        <span>DETAILS</span>
+                        <Link to="/checkout/details" className="hover:underline">DETAILS</Link>
                         <span>/</span>
                         <span className="opacity-100 text-black">PAYMENT</span>
                     </div>
@@ -110,7 +144,7 @@ const CheckoutPayment = () => {
                             </div>
 
                             <button
-                                onClick={handlePayment}
+                                onClick={handlePaymentClick}
                                 disabled={loading}
                                 className="w-full mt-8 py-5 bg-black text-white font-bold uppercase tracking-wider text-lg border-2 border-black hover:bg-lime-400 hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >

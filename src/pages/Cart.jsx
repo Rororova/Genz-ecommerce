@@ -30,6 +30,12 @@ const Cart = () => {
 
             <section className="py-12 px-6 bg-white">
                 <div className="max-w-5xl mx-auto">
+                    <div className="flex items-center gap-4 mb-8 text-sm font-bold opacity-50">
+                        <Link to="/" className="hover:underline">HOME</Link>
+                        <span>/</span>
+                        <span className="opacity-100 text-black">CART</span>
+                    </div>
+
                     {cart.length === 0 ? (
                         <div className="text-center py-20 border-2 border-black bg-gray-50 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                             <h2 className="font-syne text-3xl font-bold mb-4">YOUR CART IS EMPTY</h2>

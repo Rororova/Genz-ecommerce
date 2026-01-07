@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
@@ -48,7 +48,7 @@ const CheckoutDetails = () => {
             <div className="bg-[#fafafa] min-h-screen py-12 px-6">
                 <div className="max-w-3xl mx-auto">
                     <div className="flex items-center gap-4 mb-8 text-sm font-bold opacity-50">
-                        <span>CART</span>
+                        <Link to="/cart" className="hover:underline">CART</Link>
                         <span>/</span>
                         <span className="opacity-100 text-black">DETAILS</span>
                         <span>/</span>
