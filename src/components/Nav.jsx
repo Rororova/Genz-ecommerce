@@ -34,7 +34,7 @@ const Nav = () => {
         <div className="w-8 h-8 bg-black flex items-center justify-center">
           <iconify-icon icon="lucide:armchair" className="text-yellow-400 text-lg"></iconify-icon>
         </div>
-        <span className="font-syne text-2xl font-bold tracking-tighter leading-none">CUCK.</span>
+        <span className="font-syne text-2xl font-bold tracking-tighter leading-none">COOL.</span>
       </Link>
 
       <div className="hidden md:flex gap-8 font-medium text-sm tracking-tight">

@@ -3,12 +3,12 @@ const Footer = () => {
     <footer className="bg-yellow-400 border-black border-t-2 pt-16 pr-6 pb-8 pl-6">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mr-auto mb-16 ml-auto gap-x-12 gap-y-12">
         <div className="col-span-1 md:col-span-1">
-          <h3 className="font-syne text-2xl font-bold mb-6">CUCK.</h3>
+          <h3 className="font-syne text-2xl font-bold mb-6">COOL.</h3>
           <p className="text-sm font-medium leading-relaxed">
             Furniture designed for the modern voyeur. Established 2024. Based in Ohio (obviously).
           </p>
         </div>
-        
+
         <div>
           <h4 className="font-bold border-b-2 border-black inline-block mb-4 pb-1">SHOP</h4>
           <ul className="space-y-2 text-sm font-medium">
@@ -45,12 +45,12 @@ const Footer = () => {
       </div>
 
       <div className="border-t-2 border-black pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest">
-        <p>© 2024 CUCK CHAIRS INC.</p>
+        <p>© 2024 COOL CHAIRS INC.</p>
         <p>DESIGNED BY BRAINROT</p>
       </div>
-      
+
       <div className="mt-12 overflow-hidden select-none opacity-10">
-        <h1 className="text-[15vw] leading-none font-syne font-extrabold text-center tracking-tighter text-black">CUCK.</h1>
+        <h1 className="text-[15vw] leading-none font-syne font-extrabold text-center tracking-tighter text-black">COOL.</h1>
       </div>
     </footer>
   )

@@ -22,7 +22,7 @@ const Newsletter = () => {
       const data = await response.json()
 
       if (response.ok) {
-        setStatus({ type: 'success', message: 'Welcome to the CUCK CLUB! 🎉' })
+        setStatus({ type: 'success', message: 'Welcome to the COOL CLUB! 🎉' })
         setEmail('')
       } else {
         setStatus({ type: 'error', message: data.message || 'Something went wrong. Try again.' })
@@ -48,12 +48,12 @@ const Newsletter = () => {
 
       <div className="max-w-2xl mx-auto text-center relative z-10">
         <h2 className="font-syne text-4xl md:text-6xl font-bold mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-          JOIN THE CUCK CLUB
+          JOIN THE COOL CLUB
         </h2>
         <p className="text-gray-400 mb-8 font-medium">
           Get notified when we drop new furniture for watching people. We won't spam you (we like to watch too).
         </p>
-        
+
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
           <input
             type="email"
@@ -73,11 +73,10 @@ const Newsletter = () => {
         </form>
 
         {status && (
-          <div className={`mt-4 p-4 border-2 ${
-            status.type === 'success' 
-              ? 'border-lime-400 bg-lime-400/10 text-lime-400' 
+          <div className={`mt-4 p-4 border-2 ${status.type === 'success'
+              ? 'border-lime-400 bg-lime-400/10 text-lime-400'
               : 'border-red-400 bg-red-400/10 text-red-400'
-          } font-bold`}>
+            } font-bold`}>
             {status.message}
           </div>
         )}

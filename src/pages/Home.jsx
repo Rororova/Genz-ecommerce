@@ -20,27 +20,27 @@ const Home = () => {
           <span className="bg-black text-white px-3 py-1 text-xs font-mono mb-6 uppercase tracking-widest border border-black">
             Main Character Energy
           </span>
-          
+
           <h1 className="font-syne text-6xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mb-6">
             THE CHAIR <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600" style={{WebkitTextStroke: '2px black'}}>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600" style={{ WebkitTextStroke: '2px black' }}>
               TO WATCH.
             </span>
           </h1>
-          
+
           <p className="text-lg font-medium text-gray-800 mb-8 max-w-md leading-relaxed tracking-tight">
             Sit in the corner like a boss. The ultimate ergonomic solution for observing the situation. Zero rizz required, 100% comfort guaranteed.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full">
-            <Link 
-              to="/products" 
+            <Link
+              to="/products"
               className="glitch-hover w-full sm:w-auto px-8 py-4 bg-yellow-400 border-2 border-black text-black font-bold text-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center gap-2 transition-all"
             >
               COP NOW
               <iconify-icon icon="lucide:arrow-right" width="20"></iconify-icon>
             </Link>
-            <Link 
+            <Link
               to="/blog"
               className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-black text-black font-bold text-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all text-center"
             >
@@ -49,12 +49,12 @@ const Home = () => {
           </div>
         </div>
 
-        <div 
+        <div
           className="w-full lg:w-1/2 bg-cover bg-center min-h-[500px] relative filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500"
-          style={{backgroundImage: "url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop')"}}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2158&auto=format&fit=crop')" }}
         >
           <div className="absolute inset-0 bg-yellow-400 mix-blend-multiply opacity-40"></div>
-          
+
           <div className="absolute bottom-10 left-10 bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-w-[200px]">
             <div className="flex items-center gap-2 mb-2">
               <iconify-icon icon="lucide:eye" className="text-black"></iconify-icon>
@@ -99,9 +99,9 @@ const Home = () => {
               </h2>
               <p className="text-gray-500 font-medium">Curated for your viewing pleasure.</p>
             </div>
-            
+
             <div className="flex gap-2">
-              <Link 
+              <Link
                 to="/products"
                 className="px-4 py-2 border-2 border-black bg-black text-white font-bold text-sm shadow-[2px_2px_0px_0px_#888] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
               >
@@ -117,9 +117,9 @@ const Home = () => {
                 BEST SELLER
               </div>
               <div className="relative h-64 overflow-hidden border-b-2 border-black bg-gray-100">
-                <img 
-                  src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=1965&auto=format&fit=crop" 
-                  alt="The Hotel C-Class" 
+                <img
+                  src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=1965&auto=format&fit=crop"
+                  alt="The Hotel C-Class"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute bottom-2 right-2 bg-yellow-400 text-black text-xs font-bold px-2 py-1 border border-black">
@@ -143,9 +143,9 @@ const Home = () => {
                 TRENDING
               </div>
               <div className="relative h-64 overflow-hidden border-b-2 border-black bg-gray-100">
-                <img 
-                  src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1974&auto=format&fit=crop" 
-                  alt="The Voyager V2" 
+                <img
+                  src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1974&auto=format&fit=crop"
+                  alt="The Voyager V2"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -166,9 +166,9 @@ const Home = () => {
                 LOW STOCK
               </div>
               <div className="relative h-64 overflow-hidden border-b-2 border-black bg-gray-100">
-                <img 
-                  src="https://images.unsplash.com/photo-1519947486511-46149fa0a254?q=80&w=1974&auto=format&fit=crop" 
-                  alt="The Fold-Out" 
+                <img
+                  src="https://images.unsplash.com/photo-1519947486511-46149fa0a254?q=80&w=1974&auto=format&fit=crop"
+                  alt="The Fold-Out"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -178,7 +178,7 @@ const Home = () => {
                   <span className="font-mono text-lg font-bold">$69.99</span>
                 </div>
                 <p className="text-sm text-gray-500 mb-6 leading-snug">
-                  Portable cuckoldry. Bring the vibe to any location. Extremely squeaky.
+                  Portable coolness. Bring the vibe to any location. Extremely squeaky.
                 </p>
               </div>
             </Link>
@@ -188,7 +188,7 @@ const Home = () => {
 
       {/* Features / Manifesto */}
       <section className="bg-yellow-400 border-y-2 border-black py-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
 
         <div className="max-w-5xl mx-auto relative z-10">
           <h2 className="font-syne text-5xl md:text-7xl font-bold text-center tracking-tighter mb-16 leading-[0.9]">
@@ -227,7 +227,7 @@ const Home = () => {
       <section className="bg-[#fafafa] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-syne text-4xl font-bold mb-12 text-center uppercase">Vibes Check</h2>
-          
+
           <div className="space-y-6">
             <div className="border-2 border-black p-6 bg-white flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <div className="w-12 h-12 bg-gray-200 border-2 border-black rounded-full overflow-hidden flex-shrink-0">

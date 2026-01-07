@@ -110,7 +110,7 @@ const CreatePost = () => {
                         </span>
                     </h1>
                     <p className="text-lg font-medium">
-                        Share your wisdom with the CUCK CHAIR community.
+                        Share your wisdom with the COOL CHAIR community.
                     </p>
                 </div>
             </header>

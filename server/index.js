@@ -72,9 +72,9 @@ async function seedInitialData() {
   const moderatorPassword = hashPassword('moderator123')
   const moderator = await db.createUser({
     username: 'moderator',
-    email: 'moderator@cuckchair.com',
+    email: 'moderator@coolchair.com',
     password_hash: moderatorPassword,
-    display_name: 'CUCK MODERATOR',
+    display_name: 'COOL MODERATOR',
     role: 'moderator',
     email_verified: true
   });
@@ -548,12 +548,12 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
 
         return res.json({
           success: true,
-          message: 'Welcome back to the CUCK CLUB! Your subscription has been reactivated.'
+          message: 'Welcome back to the COOL CLUB! Your subscription has been reactivated.'
         })
       }
       return res.status(409).json({
         success: false,
-        message: 'This email is already subscribed to the CUCK CLUB!'
+        message: 'This email is already subscribed to the COOL CLUB!'
       })
     }
 
@@ -565,7 +565,7 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
 
     res.json({
       success: true,
-      message: 'Welcome to the CUCK CLUB! You have successfully subscribed.'
+      message: 'Welcome to the COOL CLUB! You have successfully subscribed.'
     })
   } catch (error) {
     console.error('Newsletter error:', error)

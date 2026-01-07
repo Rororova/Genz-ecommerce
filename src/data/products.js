@@ -62,7 +62,7 @@ export const products = [
     id: 3,
     name: "The Fold-Out",
     price: 69.99,
-    description: "Portable cuckoldry. Bring the vibe to any location. Extremely squeaky.",
+    description: "Portable coolness. Bring the vibe to any location. Extremely squeaky.",
     fullDescription: "The Fold-Out is your portable companion for watching on the go. Folds down to fit in most car trunks. Perfect for impromptu observation sessions. Note: Some squeaking may occur - adds to the authentic experience.",
     image: "https://images.unsplash.com/photo-1519947486511-46149fa0a254?q=80&w=1974&auto=format&fit=crop",
     images: [

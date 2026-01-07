@@ -93,7 +93,7 @@ const Auth = () => {
                     <p className="text-xl font-medium max-w-xl mx-auto leading-relaxed">
                         {isLogin
                             ? 'Sign in to join the discussion, like posts, and share your thoughts.'
-                            : 'Create an account to become part of the CUCK CHAIR community.'}
+                            : 'Create an account to become part of the COOL CHAIR community.'}
                     </p>
                 </div>
             </header>
@@ -234,7 +234,7 @@ const Auth = () => {
                             </li>
                             <li className="flex items-start gap-2">
                                 <iconify-icon icon="lucide:check" width="16" className="mt-0.5"></iconify-icon>
-                                <span>Join the CUCK CHAIR community</span>
+                                <span>Join the COOL CHAIR community</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <iconify-icon icon="lucide:check" width="16" className="mt-0.5"></iconify-icon>
