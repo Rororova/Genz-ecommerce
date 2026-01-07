@@ -95,7 +95,7 @@ const CheckoutDetails = () => {
                                     value={details.address}
                                     onChange={handleChange}
                                     className="w-full p-3 border-2 border-black focus:outline-none focus:ring-4 focus:ring-yellow-400/50 transition-all font-mono"
-                                    placeholder="123 Skibidi St."
+                                    placeholder="123 Main St."
                                 />
                             </div>
 
@@ -109,7 +109,7 @@ const CheckoutDetails = () => {
                                         value={details.city}
                                         onChange={handleChange}
                                         className="w-full p-3 border-2 border-black focus:outline-none focus:ring-4 focus:ring-yellow-400/50 transition-all font-mono"
-                                        placeholder="Ohio City"
+                                        placeholder="Portland"
                                     />
                                 </div>
                                 <div className="space-y-2">

@@ -6,7 +6,7 @@ import Marquee from '../components/Marquee'
 const About = () => {
     return (
         <div className="min-h-screen">
-            <Marquee text="WATCH IN STYLE • PREMIUM SEATING • LEVEL 100 COMFORT • OHIO'S FINEST • CERTIFIED AUTHENTIC" />
+            <Marquee text="WATCH IN STYLE • PREMIUM SEATING • MAXIMUM COMFORT • THE COLLECTION'S FINEST • CERTIFIED AUTHENTIC" />
             <Nav />
 
             {/* Hero Section */}
@@ -32,10 +32,10 @@ const About = () => {
                                 Origin Story
                             </span>
                             <h2 className="font-syne text-4xl font-bold tracking-tighter mb-6">
-                                Born in Ohio, Raised by Memes
+                                Born in Style, Raised by Design
                             </h2>
                             <p className="text-gray-700 mb-4 leading-relaxed">
-                                It all started in a basement in Ohio (naturally). Our founder was tired of standing while watching life happen. Why be the main character when you can be the audience?
+                                It all started in a small studio (naturally). Our founder was tired of standing while watching life happen. Why be the entertainer when you can be the audience?
                             </p>
                             <p className="text-gray-700 mb-4 leading-relaxed">
                                 We realized the world needed premium seating for premium watching. Not gaming chairs. Not office chairs. <strong>Watching chairs.</strong>
@@ -93,7 +93,7 @@ const About = () => {
                                 <iconify-icon icon="lucide:smile" width="24"></iconify-icon>
                             </div>
                             <h3 className="font-bold text-xl mb-2">Authenticity</h3>
-                            <p className="text-sm">We keep it 100. No cap, fr fr.</p>
+                            <p className="text-sm">We keep it real. Professionalism in every detail.</p>
                         </div>
 
                         <div className="border-2 border-black p-6 bg-lime-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-2 transition-transform">
@@ -101,7 +101,7 @@ const About = () => {
                                 <iconify-icon icon="lucide:zap" width="24"></iconify-icon>
                             </div>
                             <h3 className="font-bold text-xl mb-2">Quality</h3>
-                            <p className="text-sm">Built different. Hits different.</p>
+                            <p className="text-sm">Built superior. Comfort you can feel.</p>
                         </div>
 
                         <div className="border-2 border-black p-6 bg-pink-500 text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-rotate-2 transition-transform">
@@ -109,7 +109,7 @@ const About = () => {
                                 <iconify-icon icon="lucide:heart" width="24"></iconify-icon>
                             </div>
                             <h3 className="font-bold text-xl mb-2">Community</h3>
-                            <p className="text-sm">We're all in this together, fam.</p>
+                            <p className="text-sm">We're all in this together.</p>
                         </div>
 
                         <div className="border-2 border-black p-6 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:rotate-2 transition-transform">
@@ -139,9 +139,9 @@ const About = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className="font-bold text-xl mb-1">Chad McSigma</h3>
+                                <h3 className="font-bold text-xl mb-1">Charles McGregor</h3>
                                 <p className="text-sm text-gray-500 mb-3 font-mono">Founder & CEO</p>
-                                <p className="text-sm text-gray-700">The OG. Turned basement dreams into chair reality.</p>
+                                <p className="text-sm text-gray-700">The primary visionary. Turned studio dreams into chair reality.</p>
                             </div>
                         </div>
 
@@ -152,9 +152,9 @@ const About = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className="font-bold text-xl mb-1">Bella Rizzmann</h3>
+                                <h3 className="font-bold text-xl mb-1">Isabella Richmond</h3>
                                 <p className="text-sm text-gray-500 mb-3 font-mono">Head of Design</p>
-                                <p className="text-sm text-gray-700">Makes sure every chair has main character energy.</p>
+                                <p className="text-sm text-gray-700">Makes sure every chair has sophisticated presence.</p>
                             </div>
                         </div>
 
@@ -165,9 +165,9 @@ const About = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className="font-bold text-xl mb-1">Kyle Gyattson</h3>
+                                <h3 className="font-bold text-xl mb-1">Kyle Garrison</h3>
                                 <p className="text-sm text-gray-500 mb-3 font-mono">Chief Engineer</p>
-                                <p className="text-sm text-gray-700">Builds chairs that hit different, engineered for vibes.</p>
+                                <p className="text-sm text-gray-700">Builds chairs that last, engineered for comfort.</p>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@ const About = () => {
                         </div>
                         <div className="text-center">
                             <div className="font-syne text-5xl md:text-6xl font-bold mb-2 text-pink-400">100%</div>
-                            <div className="text-sm uppercase tracking-wider font-medium text-gray-400">Ohio Approved</div>
+                            <div className="text-sm uppercase tracking-wider font-medium text-gray-400">Quality Approved</div>
                         </div>
                         <div className="text-center">
                             <div className="font-syne text-5xl md:text-6xl font-bold mb-2 text-white">∞</div>

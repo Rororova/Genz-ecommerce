@@ -81,12 +81,12 @@ async function seedInitialData() {
 
   // Create initial hashtags
   const initialHashtags = [
-    { tag: 'SIGMA', slug: 'sigma', trending: true },
+    { tag: 'PREMIUM', slug: 'premium', trending: true },
     { tag: 'CHAIRS', slug: 'chairs', trending: true },
     { tag: 'SITTING', slug: 'sitting', trending: true },
     { tag: 'WATCHING', slug: 'watching', trending: true },
-    { tag: 'OHIO', slug: 'ohio', trending: false },
-    { tag: 'RIZZ', slug: 'rizz', trending: false },
+    { tag: 'EXCLUSIVE', slug: 'exclusive', trending: false },
+    { tag: 'STYLE', slug: 'style', trending: false },
     { tag: 'LIFESTYLE', slug: 'lifestyle', trending: false },
     { tag: 'FURNITURE', slug: 'furniture', trending: false }
   ];
@@ -100,16 +100,16 @@ async function seedInitialData() {
   // Create initial forum posts
   const initialPosts = [
     {
-      title: "HOW TO MOG YOUR LIVING ROOM FURNITURE",
-      slug: "how-to-mog-your-living-room-furniture",
-      excerpt: "Stop letting your sofa dominate the space. Assert dominance over your upholstery with these simple alpha feng shui techniques.",
+      title: "HOW TO UPGRADE YOUR LIVING ROOM FURNITURE",
+      slug: "how-to-upgrade-your-living-room-furniture",
+      excerpt: "Stop letting your sofa dominate the space. Assert dominance over your upholstery with these simple professional feng shui techniques.",
       content: `<p>Welcome to the ultimate guide on furniture dominance. In this comprehensive article, we'll explore how to make your living room furniture work for you, not against you.</p><p>First, let's talk about spatial awareness. Your furniture should know its place - literally. Position your chairs strategically to command respect from any angle.</p><p>Remember: furniture is about power dynamics. Don't let your sofa think it runs the show.</p>`,
       featured_image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop",
       category: "LIFESTYLE",
       category_bg_color: "bg-lime-400",
       featured: true,
       read_time: 5,
-      hashtags: [createdHashtags['SIGMA'], createdHashtags['FURNITURE']]
+      hashtags: [createdHashtags['PREMIUM'], createdHashtags['FURNITURE']]
     },
     {
       title: "Top 10 Corners to Cry In",
@@ -123,10 +123,10 @@ async function seedInitialData() {
       read_time: 3
     },
     {
-      title: "Is Your Chair \"Mid\"?",
-      slug: "is-your-chair-mid",
-      excerpt: "If it doesn't have lumbar support and at least 3 legs, it might be cringe. A comprehensive review of seating paradigms.",
-      content: `<p>Let's face it: not all chairs are created equal. Some are sigma, some are alpha, and some are just... mid.</p><p>We've developed a comprehensive rating system based on leg count, comfort factor, and rizz potential. Your current chair might not make the cut.</p>`,
+      title: "Is Your Chair \"Average\"?",
+      slug: "is-your-chair-average",
+      excerpt: "If it doesn't have lumbar support and at least 3 legs, it might be outdated. A comprehensive review of seating paradigms.",
+      content: `<p>Let's face it: not all chairs are created equal. Some are premium, some are top-tier, and some are just... average.</p><p>We've developed a comprehensive rating system based on leg count, comfort factor, and style potential. Your current chair might not make the cut.</p>`,
       featured_image: "https://images.unsplash.com/photo-1506898667547-42e22a46e125?q=80&w=2006&auto=format&fit=crop",
       category: "FURNITURE",
       category_bg_color: "bg-pink-500 text-white",

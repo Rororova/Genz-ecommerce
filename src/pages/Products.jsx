@@ -16,7 +16,7 @@ const Products = () => {
 
   return (
     <div className="min-h-screen">
-      <Marquee text="NO CAP • FREE SHIPPING TO OHIO • LEVEL 100 GYATT • SKIBIDI RIZZ CERTIFIED • MOG YOUR NEIGHBORS • FANUM TAX INCLUDED" />
+      <Marquee text="PREMIUM QUALITY • FREE SHIPPING • MAXIMUM COMFORT • CERTIFIED STYLE • UPGRADE YOUR SPACE • AUTHENTIC DESIGN" />
       <Nav />
 
       {/* Hero Section */}
@@ -128,7 +128,7 @@ const Products = () => {
                         onClick={(e) => {
                           e.preventDefault()
                           addToCart(product)
-                          alert('ADDED TO STASH')
+                          alert('ADDED TO CART')
                         }}
                         className="w-full py-3 bg-black text-white font-bold uppercase tracking-wider text-sm hover:bg-lime-400 hover:text-black transition-colors border border-black"
                       >

@@ -97,7 +97,7 @@ const CreatePost = () => {
 
     return (
         <div className="min-h-screen">
-            <Marquee text="MODERATOR ZONE • CREATE CONTENT • SPREAD THE WORD • SIGMA POSTING • CHAIR WISDOM" />
+            <Marquee text="MODERATOR ZONE • CREATE CONTENT • SPREAD THE WORD • QUALITY POSTING • CHAIR WISDOM" />
             <Nav />
 
             {/* Hero */}
@@ -212,8 +212,8 @@ const CreatePost = () => {
                                 >
                                     <option value="LIFESTYLE">LIFESTYLE</option>
                                     <option value="FURNITURE">FURNITURE</option>
-                                    <option value="OHIO NEWS">OHIO NEWS</option>
-                                    <option value="RIZZ TIPS">RIZZ TIPS</option>
+                                    <option value="LATEST NEWS">LATEST NEWS</option>
+                                    <option value="STYLE TIPS">STYLE TIPS</option>
                                     <option value="TECH">TECH</option>
                                     <option value="GENERAL">GENERAL</option>
                                 </select>
@@ -246,7 +246,7 @@ const CreatePost = () => {
                                 value={formData.hashtags}
                                 onChange={handleChange}
                                 className="w-full border-2 border-black p-4 font-medium focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                                placeholder="SIGMA, CHAIRS, LIFESTYLE (comma separated)"
+                                placeholder="PREMIUM, CHAIRS, LIFESTYLE (comma separated)"
                             />
                             <p className="text-xs text-gray-600 mt-2">
                                 Separate hashtags with commas. They will be automatically formatted.

@@ -7,18 +7,18 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <div className="min-h-screen">
-      <Marquee text="NO CAP • FREE SHIPPING TO OHIO • LEVEL 100 GYATT • SKIBIDI RIZZ CERTIFIED • MOG YOUR NEIGHBORS • FANUM TAX INCLUDED" />
+      <Marquee text="PREMIUM QUALITY • FREE SHIPPING • MAXIMUM COMFORT • CERTIFIED STYLE • UPGRADE YOUR SPACE • AUTHENTIC DESIGN" />
       <Nav />
 
       {/* Hero Section */}
       <header className="relative w-full border-b-2 border-black bg-[#fafafa] flex flex-col lg:flex-row overflow-hidden">
         <div className="w-full lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center items-start border-b-2 lg:border-b-0 lg:border-r-2 border-black relative">
           <div className="absolute top-10 right-10 rotate-12 bg-lime-400 text-black px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-bold text-xs uppercase z-10 hidden md:block">
-            Approved by Sigmas
+            Approved by Experts
           </div>
 
           <span className="bg-black text-white px-3 py-1 text-xs font-mono mb-6 uppercase tracking-widest border border-black">
-            Main Character Energy
+            Statement Piece
           </span>
 
           <h1 className="font-syne text-6xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mb-6">
@@ -29,7 +29,7 @@ const Home = () => {
           </h1>
 
           <p className="text-lg font-medium text-gray-800 mb-8 max-w-md leading-relaxed tracking-tight">
-            Sit in the corner like a boss. The ultimate ergonomic solution for observing the situation. Zero rizz required, 100% comfort guaranteed.
+            Sit in the corner like a leader. The ultimate ergonomic solution for observing the situation. Zero effort required, 100% comfort guaranteed.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -37,7 +37,7 @@ const Home = () => {
               to="/products"
               className="glitch-hover w-full sm:w-auto px-8 py-4 bg-yellow-400 border-2 border-black text-black font-bold text-lg shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center gap-2 transition-all"
             >
-              COP NOW
+              SHOP NOW
               <iconify-icon icon="lucide:arrow-right" width="20"></iconify-icon>
             </Link>
             <Link
@@ -123,7 +123,7 @@ const Home = () => {
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute bottom-2 right-2 bg-yellow-400 text-black text-xs font-bold px-2 py-1 border border-black">
-                  FR FR
+                  LEGIT
                 </div>
               </div>
               <div className="p-6 flex flex-col flex-grow">
@@ -132,7 +132,7 @@ const Home = () => {
                   <span className="font-mono text-lg font-bold">$420.69</span>
                 </div>
                 <p className="text-sm text-gray-500 mb-6 leading-snug">
-                  Classic mid-century design. Perfect for brooding in the shadows while scrolling TikTok.
+                  Classic design for the modern home. Perfect for brooding in the shadows while scrolling social media.
                 </p>
               </div>
             </Link>
@@ -155,7 +155,7 @@ const Home = () => {
                   <span className="font-mono text-lg font-bold">$299.00</span>
                 </div>
                 <p className="text-sm text-gray-500 mb-6 leading-snug">
-                  White aesthetic for the minimalist sad boi. Stain resistant (you know why).
+                  White aesthetic for the minimalist observer. Stain resistant and durable.
                 </p>
               </div>
             </Link>
@@ -226,7 +226,7 @@ const Home = () => {
       {/* Reviews Section */}
       <section className="bg-[#fafafa] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-syne text-4xl font-bold mb-12 text-center uppercase">Vibes Check</h2>
+          <h2 className="font-syne text-4xl font-bold mb-12 text-center uppercase">Vibes</h2>
 
           <div className="space-y-6">
             <div className="border-2 border-black p-6 bg-white flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">

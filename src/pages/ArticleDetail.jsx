@@ -37,10 +37,10 @@ const ArticleDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen">
-        <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • SKIBIDI SCHOLAR • KNOWLEDGE IS POWER (AND RIZZ) • NO TL;DR HERE" />
+        <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • ELITE SCHOLAR • KNOWLEDGE IS POWER (AND STYLE) • NO TL;DR HERE" />
         <Nav />
         <div className="text-center py-20">
-          <p className="text-xl font-bold">Loading brainrot...</p>
+          <p className="text-xl font-bold">Loading content...</p>
         </div>
         <Footer />
       </div>
@@ -50,7 +50,7 @@ const ArticleDetail = () => {
   if (error || !article) {
     return (
       <div className="min-h-screen">
-        <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • SKIBIDI SCHOLAR • KNOWLEDGE IS POWER (AND RIZZ) • NO TL;DR HERE" />
+        <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • ELITE SCHOLAR • KNOWLEDGE IS POWER (AND STYLE) • NO TL;DR HERE" />
         <Nav />
         <div className="text-center py-20">
           <h1 className="font-syne text-4xl font-bold mb-4">Article Not Found</h1>
@@ -65,7 +65,7 @@ const ArticleDetail = () => {
 
   return (
     <div className="min-h-screen">
-      <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • SKIBIDI SCHOLAR • KNOWLEDGE IS POWER (AND RIZZ) • NO TL;DR HERE" />
+      <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • ELITE SCHOLAR • KNOWLEDGE IS POWER (AND STYLE) • NO TL;DR HERE" />
       <Nav />
 
       {/* Breadcrumb */}
@@ -158,7 +158,7 @@ const ArticleDetail = () => {
             to="/blog"
             className="px-6 py-3 bg-white border-2 border-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0px_0px_#000]"
           >
-            More Brainrot →
+            More Content →
           </Link>
         </div>
       </div>

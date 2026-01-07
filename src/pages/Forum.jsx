@@ -117,13 +117,13 @@ const Forum = () => {
 
     return (
         <div className="min-h-screen">
-            <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • SKIBIDI SCHOLAR • KNOWLEDGE IS POWER (AND RIZZ) • NO TL;DR HERE" />
+            <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • ELITE SCHOLAR • KNOWLEDGE IS POWER (AND STYLE) • NO TL;DR HERE" />
             <Nav />
 
             {/* Forum Hero */}
             <header className="bg-[#fafafa] border-b-2 border-black py-20 px-6 relative overflow-hidden">
                 <div className="absolute top-10 right-10 rotate-12 bg-lime-400 border-2 border-black p-4 shadow-[4px_4px_0px_0px_black] hidden md:block z-10">
-                    <p className="font-bold text-xs uppercase">Certified Brainrot</p>
+                    <p className="font-bold text-xs uppercase">Certified Quality</p>
                 </div>
 
                 <div className="max-w-7xl mx-auto relative z-20">
@@ -188,7 +188,7 @@ const Forum = () => {
                 <main className="w-full lg:w-3/4 bg-[#fafafa]">
                     {loading ? (
                         <div className="p-8 text-center">
-                            <p className="text-xl font-bold">Loading brainrot...</p>
+                            <p className="text-xl font-bold">Loading content...</p>
                         </div>
                     ) : (
                         <>
@@ -312,7 +312,7 @@ const Forum = () => {
                                                 disabled={loadingMore}
                                                 className="w-full md:w-auto px-12 py-4 bg-black text-white font-syne text-xl font-bold uppercase tracking-widest hover:bg-lime-400 hover:text-black border-2 border-black transition-colors shadow-[4px_4px_0px_0px_#888] disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
-                                                {loadingMore ? 'Loading...' : 'Load More Brainrot'}
+                                                {loadingMore ? 'Loading...' : 'Load More Content'}
                                             </button>
                                         </div>
                                     )}

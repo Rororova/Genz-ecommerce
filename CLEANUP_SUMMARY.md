@@ -24,7 +24,7 @@
     - Mission statement
     - Company values (Authenticity, Quality, Community, Innovation)
     - Team section with 3 team members
-    - Stats section (10K+ watchers, 50+ models, 100% Ohio approved)
+    - Stats section (10K+ watchers, 50+ models, 100% Quality approved)
   - Follows the same brutalist design language with yellow, lime, and pink accents
   - Includes all components (Nav, Footer, Newsletter, Marquee)
   

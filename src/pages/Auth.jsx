@@ -67,7 +67,7 @@ const Auth = () => {
 
     return (
         <div className="min-h-screen">
-            <Marquee text="JOIN THE CLUB • BECOME A MEMBER • SIGMA GRINDSET • CHAIR ENTHUSIASTS ONLY • NO BETAS ALLOWED" />
+            <Marquee text="JOIN THE CLUB • BECOME A MEMBER • PROFESSIONAL MINDSET • CHAIR ENTHUSIASTS ONLY • ALL LOVERS WELCOME" />
             <Nav />
 
             {/* Hero */}

@@ -39,7 +39,7 @@ const CheckoutPayment = () => {
         // Success flow
         clearCart();
         localStorage.removeItem('checkout_details');
-        alert('Payment Successful! Your authentic Ohio furniture is on the way.');
+        alert('Payment Successful! Your authentic furniture is on the way.');
         navigate('/');
     };
 

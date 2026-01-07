@@ -386,11 +386,11 @@ export const supabaseProvider = {
         if (!data || data.length === 0) {
             // Fallback for "preloaded" look if DB is empty
             return [
-                { tag: 'SIGMA', usage_count: 100 },
+                { tag: 'PREMIUM', usage_count: 100 },
                 { tag: 'CHAIRS', usage_count: 80 },
                 { tag: 'FURNITURE', usage_count: 50 },
-                { tag: 'OHIO', usage_count: 40 },
-                { tag: 'RIZZ', usage_count: 30 }
+                { tag: 'EXCLUSIVE', usage_count: 40 },
+                { tag: 'STYLE', usage_count: 30 }
             ];
         }
         return data;

@@ -14,7 +14,7 @@ const Cart = () => {
 
     return (
         <div className="min-h-screen">
-            <Marquee text="SECURE THE BAG • NO CAP • BUY NOW CRY LATER • INVEST IN YOURSELF • 100% AUTHENTIC RIZZ • FREE SHIPPING (TO OHIO)" />
+            <Marquee text="SECURE THE BAG • EXCLUSIVE • BUY NOW CRY LATER • INVEST IN YOURSELF • 100% AUTHENTIC STYLE • FREE SHIPPING (DOMESTIC)" />
             <Nav />
 
             <header className="bg-[#fafafa] border-b-2 border-black py-12 px-6">
@@ -22,7 +22,7 @@ const Cart = () => {
                     <h1 className="font-syne text-5xl md:text-7xl font-bold tracking-tighter mb-4">
                         YOUR <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600" style={{ WebkitTextStroke: '2px black' }}>
-                            STASH.
+                            CART.
                         </span>
                     </h1>
                 </div>
@@ -39,7 +39,7 @@ const Cart = () => {
                     {cart.length === 0 ? (
                         <div className="text-center py-20 border-2 border-black bg-gray-50 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                             <h2 className="font-syne text-3xl font-bold mb-4">YOUR CART IS EMPTY</h2>
-                            <p className="text-gray-500 mb-8">Imagine not owning cool chairs. Couldn't be me.</p>
+                            <p className="text-gray-500 mb-8">Start building your dream space today.</p>
                             <Link
                                 to="/products"
                                 className="inline-block px-8 py-4 bg-black text-white font-bold uppercase tracking-wider border-2 border-black hover:bg-lime-400 hover:text-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
@@ -114,7 +114,7 @@ const Cart = () => {
                                         </div>
                                         <div className="flex justify-between text-gray-700">
                                             <span>Shipping</span>
-                                            <span>FREE (OHIO ONLY)</span>
+                                            <span>FREE</span>
                                         </div>
                                         <div className="flex justify-between font-bold text-lg pt-4 border-t-2 border-black">
                                             <span>Total</span>

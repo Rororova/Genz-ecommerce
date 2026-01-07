@@ -17,7 +17,7 @@ const ProductDetail = () => {
   if (!product) {
     return (
       <div className="min-h-screen">
-        <Marquee text="NO CAP • FREE SHIPPING TO OHIO • LEVEL 100 GYATT • SKIBIDI RIZZ CERTIFIED • MOG YOUR NEIGHBORS • FANUM TAX INCLUDED" />
+        <Marquee text="PREMIUM QUALITY • FREE SHIPPING • MAXIMUM COMFORT • CERTIFIED STYLE • UPGRADE YOUR SPACE • AUTHENTIC DESIGN" />
         <Nav />
         <div className="text-center py-20">
           <h1 className="font-syne text-4xl font-bold mb-4">Product Not Found</h1>
@@ -35,12 +35,12 @@ const ProductDetail = () => {
     for (let i = 0; i < quantity; i++) {
       addToCart(product)
     }
-    alert(`Added ${quantity} ${product.name}(s) to stash!`)
+    alert(`Added ${quantity} ${product.name}(s) to cart!`)
   }
 
   return (
     <div className="min-h-screen">
-      <Marquee text="NO CAP • FREE SHIPPING TO OHIO • LEVEL 100 GYATT • SKIBIDI RIZZ CERTIFIED • MOG YOUR NEIGHBORS • FANUM TAX INCLUDED" />
+      <Marquee text="PREMIUM QUALITY • FREE SHIPPING • MAXIMUM COMFORT • CERTIFIED STYLE • UPGRADE YOUR SPACE • AUTHENTIC DESIGN" />
       <Nav />
 
       {/* Breadcrumb */}

@@ -3,7 +3,7 @@ export const products = [
     id: 1,
     name: "The Hotel C-Class",
     price: 420.69,
-    description: "Classic mid-century design. Perfect for brooding in the shadows while scrolling TikTok.",
+    description: "Classic design for the modern home. Perfect for brooding in the shadows while scrolling social media.",
     fullDescription: "The Hotel C-Class is our flagship chair designed for maximum observation potential. Crafted with premium materials and engineered for comfort during extended viewing sessions. Features include adjustable height, lumbar support, and optional binocular mounts.",
     image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?q=80&w=1965&auto=format&fit=crop",
     images: [
@@ -33,7 +33,7 @@ export const products = [
     id: 2,
     name: "The Voyager V2",
     price: 299.00,
-    description: "White aesthetic for the minimalist sad boi. Stain resistant (you know why).",
+    description: "White aesthetic for the minimalist observer. Stain resistant and durable.",
     fullDescription: "The Voyager V2 brings minimalist design to the observation game. Clean lines, white finish, and maximum comfort. Perfect for those who want to blend in while standing out. Now with enhanced stain resistance technology.",
     image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1974&auto=format&fit=crop",
     images: [

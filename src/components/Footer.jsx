@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="col-span-1 md:col-span-1">
           <h3 className="font-syne text-2xl font-bold mb-6">COOL.</h3>
           <p className="text-sm font-medium leading-relaxed">
-            Furniture designed for the modern voyeur. Established 2024. Based in Ohio (obviously).
+            Furniture designed for the modern observer. Established 2024. Based in the City.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ const Footer = () => {
 
       <div className="border-t-2 border-black pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest">
         <p>© 2024 COOL CHAIRS INC.</p>
-        <p>DESIGNED BY BRAINROT</p>
+        <p>DESIGNED BY EXPERTS</p>
       </div>
 
       <div className="mt-12 overflow-hidden select-none opacity-10">

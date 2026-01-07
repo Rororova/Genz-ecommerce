@@ -117,22 +117,22 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen">
-      <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • SKIBIDI SCHOLAR • KNOWLEDGE IS POWER (AND RIZZ) • NO TL;DR HERE" />
+      <Marquee text="READING IS FUNDAMENTAL • TOUCH GRASS LATER • ELITE SCHOLAR • KNOWLEDGE IS POWER (AND STYLE) • NO TL;DR HERE" />
       <Nav />
 
       {/* Blog Hero */}
       <header className="bg-[#fafafa] border-b-2 border-black py-20 px-6 relative overflow-hidden">
         <div className="absolute top-10 right-10 rotate-12 bg-lime-400 border-2 border-black p-4 shadow-[4px_4px_0px_0px_black] hidden md:block z-10">
-          <p className="font-bold text-xs uppercase">Certified Brainrot</p>
+          <p className="font-bold text-xs uppercase">Certified Quality</p>
         </div>
-        
+
         <div className="max-w-7xl mx-auto relative z-20">
           <span className="bg-black text-white px-3 py-1 text-xs font-mono mb-6 uppercase tracking-widest border border-black inline-block">
             The Archives
           </span>
           <h1 className="font-syne text-7xl md:text-9xl font-bold tracking-tighter leading-[0.85] mb-6">
             THE<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600" style={{WebkitTextStroke: '2px black'}}>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600" style={{ WebkitTextStroke: '2px black' }}>
               LORE.
             </span>
           </h1>
@@ -156,14 +156,12 @@ const Blog = () => {
                 <button
                   key={idx}
                   onClick={() => handleCategoryClick(cat.name)}
-                  className={`flex justify-between items-center font-bold text-sm border-2 border-black p-3 shadow-[4px_4px_0px_0px_black] hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_black] transition-all ${
-                    selectedCategory === cat.name ? 'bg-black text-white' : 'bg-white'
-                  }`}
+                  className={`flex justify-between items-center font-bold text-sm border-2 border-black p-3 shadow-[4px_4px_0px_0px_black] hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_black] transition-all ${selectedCategory === cat.name ? 'bg-black text-white' : 'bg-white'
+                    }`}
                 >
                   <span>{cat.name}</span>
-                  <span className={`px-2 py-0.5 text-xs ${
-                    selectedCategory === cat.name ? 'bg-white text-black' : 'bg-black text-white'
-                  }`}>
+                  <span className={`px-2 py-0.5 text-xs ${selectedCategory === cat.name ? 'bg-white text-black' : 'bg-black text-white'
+                    }`}>
                     {cat.count}
                   </span>
                 </button>
@@ -190,7 +188,7 @@ const Blog = () => {
         <main className="w-full lg:w-3/4 bg-[#fafafa]">
           {loading ? (
             <div className="p-8 text-center">
-              <p className="text-xl font-bold">Loading brainrot...</p>
+              <p className="text-xl font-bold">Loading content...</p>
             </div>
           ) : (
             <>
@@ -201,7 +199,7 @@ const Blog = () => {
                   className="border-b-2 border-black group relative overflow-hidden block"
                 >
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-10 transition-opacity z-10 pointer-events-none"></div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="h-64 md:h-auto border-b-2 md:border-b-0 md:border-r-2 border-black relative overflow-hidden">
                       <img
@@ -288,7 +286,7 @@ const Blog = () => {
                         disabled={loadingMore}
                         className="w-full md:w-auto px-12 py-4 bg-black text-white font-syne text-xl font-bold uppercase tracking-widest hover:bg-lime-400 hover:text-black border-2 border-black transition-colors shadow-[4px_4px_0px_0px_#888] disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {loadingMore ? 'Loading...' : 'Load More Brainrot'}
+                        {loadingMore ? 'Loading...' : 'Load More Content'}
                       </button>
                     </div>
                   )}
