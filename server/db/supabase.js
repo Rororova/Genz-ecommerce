@@ -209,24 +209,53 @@ export const supabaseProvider = {
         return normalize(post);
     },
     async incrementPostViews(id) {
-        // RPC call usually best for atomic increments, but standard SQL update via rpc is:
-        const { error } = await this.client.rpc('increment_views', { row_id: id });
-        // If RPC doesn't exist, we skip or do read-write (risky).
-        // For this demo we'll assume an RPC exists (I should provide SQL for it) OR just mock it.
-        // Fallback: Read-update
+        // Simple update for views
+        const { data: post, error: fetchError } = await this.client
+            .from('forum_posts')
+            .select('views')
+            .eq('id', id)
+            .single();
+
+        if (fetchError) return;
+
+        await this.client
+            .from('forum_posts')
+            .update({ views: (post.views || 0) + 1 })
+            .eq('id', id);
     },
     async incrementPostLikes(id, amount) {
-        // Warning: Race conditions in simplified read-write.
-        // Assuming 'increment_likes' rpc exists
-        // await this.client.rpc('increment_post_likes', { post_id: id, amount });
+        // Fetch current count first (not atomic but functional without RPC)
+        const { data: post, error: fetchError } = await this.client
+            .from('forum_posts')
+            .select('likes_count')
+            .eq('id', id)
+            .single();
+
+        if (fetchError) return;
+
+        const newCount = Math.max(0, (post.likes_count || 0) + amount);
+
+        await this.client
+            .from('forum_posts')
+            .update({ likes_count: newCount })
+            .eq('id', id);
     },
     async incrementPostComments(id, amount) {
-        // await this.client.rpc('increment_post_comments', { post_id: id, amount });
+        const { data: post, error: fetchError } = await this.client
+            .from('forum_posts')
+            .select('comments_count')
+            .eq('id', id)
+            .single();
+
+        if (fetchError) return;
+
+        const newCount = Math.max(0, (post.comments_count || 0) + amount);
+
+        await this.client
+            .from('forum_posts')
+            .update({ comments_count: newCount })
+            .eq('id', id);
     },
-
-    // Fallback atomic increment simulation (not perfectly atomic without stored proc)
-    // We will just leave these blank or log warning if no RPC.
-
     // --- Comments ---
     async getComments(postId) {
         const { data, error } = await this.client
@@ -259,7 +288,20 @@ export const supabaseProvider = {
         return normalize(comment);
     },
     async incrementCommentLikes(id, amount) {
-        // Implement via RPC or ignore for MVP
+        const { data: comment, error: fetchError } = await this.client
+            .from('comments')
+            .select('likes_count')
+            .eq('id', id)
+            .single();
+
+        if (fetchError) return;
+
+        const newCount = Math.max(0, (comment.likes_count || 0) + amount);
+
+        await this.client
+            .from('comments')
+            .update({ likes_count: newCount })
+            .eq('id', id);
     },
 
     // --- Likes ---
