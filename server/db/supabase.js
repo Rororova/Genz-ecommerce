@@ -2,6 +2,7 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Helper to normalize Supabase response to match app expectations (camelCaseID)
+// Helper to normalize Supabase response to match app expectations (camelCaseID)
 const normalize = (data) => {
     if (!data) return null;
     // Supabase (Postgres) returns everything as is (snake_case usually)
@@ -10,11 +11,16 @@ const normalize = (data) => {
 
     // Handle join results if they exist (e.g. author: { username: ... })
     // Supabase usually returns: { ..., users: { username: ... } } if joined.
-    // We Map 'users' to 'author'
+    // We Map 'users' to 'author' AND flatten for convenience
 
     const obj = { ...data };
 
     if (obj.users) {
+        // Flatten author details so obj.username works directly (common frontend pattern)
+        if (obj.users.username) obj.username = obj.users.username;
+        if (obj.users.display_name) obj.display_name = obj.users.display_name;
+        if (obj.users.avatar_url) obj.avatar_url = obj.users.avatar_url;
+
         obj.author = obj.users;
         delete obj.users;
     }
