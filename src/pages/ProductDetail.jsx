@@ -5,7 +5,10 @@ import Footer from '../components/Footer'
 import Marquee from '../components/Marquee'
 import { getProductById } from '../data/products'
 
+import { useCart } from '../context/CartContext'
+
 const ProductDetail = () => {
+  const { addToCart } = useCart()
   const { id } = useParams()
   const product = getProductById(id)
   const [selectedImage, setSelectedImage] = useState(0)
@@ -28,8 +31,11 @@ const ProductDetail = () => {
   }
 
   const handleAddToCart = () => {
-    // TODO: Implement cart functionality
-    alert(`Added ${quantity} ${product.name}(s) to cart!`)
+    // Add product multiple times based on quantity or pass quantity to addToCart
+    for (let i = 0; i < quantity; i++) {
+      addToCart(product)
+    }
+    alert(`Added ${quantity} ${product.name}(s) to stash!`)
   }
 
   return (
@@ -54,12 +60,12 @@ const ProductDetail = () => {
       <section className="py-12 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
+
             {/* Image Gallery */}
             <div>
               <div className="border-2 border-black mb-4 relative overflow-hidden aspect-square">
-                <img 
-                  src={product.images[selectedImage]} 
+                <img
+                  src={product.images[selectedImage]}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
@@ -69,7 +75,7 @@ const ProductDetail = () => {
                   </div>
                 )}
               </div>
-              
+
               {product.images.length > 1 && (
                 <div className="flex gap-4">
                   {product.images.map((img, idx) => (
@@ -78,8 +84,8 @@ const ProductDetail = () => {
                       onClick={() => setSelectedImage(idx)}
                       className={`border-2 ${selectedImage === idx ? 'border-black' : 'border-gray-300'} w-24 h-24 overflow-hidden`}
                     >
-                      <img 
-                        src={img} 
+                      <img
+                        src={img}
                         alt={`${product.name} view ${idx + 1}`}
                         className="w-full h-full object-cover"
                       />
@@ -94,7 +100,7 @@ const ProductDetail = () => {
               <h1 className="font-syne text-5xl md:text-6xl font-bold tracking-tighter mb-4">
                 {product.name}
               </h1>
-              
+
               <div className="mb-6">
                 <span className="font-mono text-4xl font-bold">${product.price.toFixed(2)}</span>
               </div>

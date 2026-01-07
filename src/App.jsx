@@ -10,30 +10,42 @@ import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
 import About from './pages/About'
 
+import { CartProvider } from './context/CartContext'
+import Cart from './pages/Cart'
+import CheckoutDetails from './pages/CheckoutDetails'
+import CheckoutPayment from './pages/CheckoutPayment'
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* Keep old blog routes for backward compatibility */}
-        <Route path="/blog" element={<Forum />} />
-        <Route path="/blog/:slug" element={<ForumPostDetail />} />
-        {/* New forum routes */}
-        <Route path="/forum" element={<Forum />} />
-        <Route path="/forum/:slug" element={<ForumPostDetail />} />
-        <Route path="/forum/create" element={<CreatePost />} />
-        {/* Auth routes */}
-        <Route path="/login" element={<Auth />} />
-        <Route path="/register" element={<Auth />} />
-        {/* Product routes */}
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
-        {/* About route */}
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* Keep old blog routes for backward compatibility */}
+          <Route path="/blog" element={<Forum />} />
+          <Route path="/blog/:slug" element={<ForumPostDetail />} />
+          {/* New forum routes */}
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/forum/:slug" element={<ForumPostDetail />} />
+          <Route path="/forum/create" element={<CreatePost />} />
+          {/* Auth routes */}
+          <Route path="/login" element={<Auth />} />
+          <Route path="/register" element={<Auth />} />
+          {/* Product routes */}
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          {/* Cart & Checkout */}
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout/details" element={<CheckoutDetails />} />
+          <Route path="/checkout/payment" element={<CheckoutPayment />} />
+          {/* About route */}
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   )
 }
+
 
 export default App
 

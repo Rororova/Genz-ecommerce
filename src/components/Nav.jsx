@@ -1,10 +1,11 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
+import { useCart } from '../context/CartContext'
 const Nav = () => {
   const location = useLocation()
   const navigate = useNavigate()
-  const [cartCount] = useState(0) // TODO: Connect to cart context
+  const { getCartCount } = useCart()
   const [user, setUser] = useState(null)
 
   useEffect(() => {
@@ -97,10 +98,10 @@ const Nav = () => {
             <iconify-icon icon="lucide:user" width="16"></iconify-icon>
           </Link>
         )}
-        <button className="relative bg-white border-2 border-black px-4 py-2 text-sm font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2">
-          CART ({cartCount})
+        <Link to="/cart" className="relative bg-white border-2 border-black px-4 py-2 text-sm font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center gap-2">
+          CART ({getCartCount()})
           <iconify-icon icon="lucide:shopping-bag" width="16"></iconify-icon>
-        </button>
+        </Link>
       </div>
     </nav>
   )
