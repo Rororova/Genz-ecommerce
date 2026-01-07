@@ -230,12 +230,12 @@ const Home = () => {
 
           <div className="space-y-6">
             <div className="border-2 border-black p-6 bg-white flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <div className="w-12 h-12 bg-gray-200 border-2 border-black rounded-full overflow-hidden flex-shrink-0">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" className="w-full h-full" />
+              <div className="w-12 h-12 bg-pink-100 border-2 border-black rounded-full overflow-hidden flex-shrink-0">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sophie" alt="User" className="w-full h-full" />
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-bold text-sm">Gigachad69</span>
+                  <span className="font-bold text-sm">Sophie_Reads</span>
                   <span className="text-xs bg-yellow-400 px-1 border border-black font-bold">VERIFIED BUYER</span>
                 </div>
                 <div className="flex text-yellow-500 mb-2 gap-0.5">
@@ -244,19 +244,19 @@ const Home = () => {
                   ))}
                 </div>
                 <p className="text-sm text-gray-800 italic">
-                  "Bought this for my wife's boyfriend. He says it really ties the room together. W rizz."
+                  "I bought this for my reading nook and it's absolutely perfect. The most cozy spot to curl up with a cup of tea and a good book. It feels like a hug!"
                 </p>
               </div>
             </div>
 
             <div className="border-2 border-black p-6 bg-white flex gap-4 items-start shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-4 md:translate-x-12">
-              <div className="w-12 h-12 bg-gray-200 border-2 border-black rounded-full overflow-hidden flex-shrink-0">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Karen" alt="User" className="w-full h-full" />
+              <div className="w-12 h-12 bg-lime-100 border-2 border-black rounded-full overflow-hidden flex-shrink-0">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Oliver" alt="User" className="w-full h-full" />
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-bold text-sm">SkibidiRizzler</span>
-                  <span className="text-xs bg-lime-400 px-1 border border-black font-bold">OHIO RESIDENT</span>
+                  <span className="font-bold text-sm">OliverCreates</span>
+                  <span className="text-xs bg-lime-400 px-1 border border-black font-bold">LOVE IT</span>
                 </div>
                 <div className="flex text-yellow-500 mb-2 gap-0.5">
                   {[...Array(5)].map((_, i) => (
@@ -264,7 +264,7 @@ const Home = () => {
                   ))}
                 </div>
                 <p className="text-sm text-gray-800 italic">
-                  "This chair is bussin respectfully. No cap. I sat here for 4 hours and didn't make a sound. Highly recommend for quiet quitting relationships."
+                  "Honestly the creative vibes this chair gives are unmatched. It completely transformed my studio space. Plus, my cat has claimed it as her throne. 10/10 wholesome."
                 </p>
               </div>
             </div>
