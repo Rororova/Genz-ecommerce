@@ -1,7 +1,9 @@
 -- Enable UUID extension
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- USERS TABLE
+-- ==========================================
+-- 1. USERS
+-- ==========================================
 CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   username TEXT UNIQUE NOT NULL,
@@ -18,7 +20,16 @@ CREATE TABLE users (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- USER SESSIONS
+ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+
+-- Strict: No public access to users table (contains auth info). 
+-- The Server (Service Role) can bypass this. 
+-- If you need public profiles, consider creating a view or specific policy.
+-- For now, we DENY ALL to anon.
+
+-- ==========================================
+-- 2. USER SESSIONS
+-- ==========================================
 CREATE TABLE user_sessions (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID REFERENCES users(id) ON DELETE CASCADE,
@@ -29,7 +40,12 @@ CREATE TABLE user_sessions (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- HASHTAGS
+ALTER TABLE user_sessions ENABLE ROW LEVEL SECURITY;
+-- Strict: No public access.
+
+-- ==========================================
+-- 3. HASHTAGS
+-- ==========================================
 CREATE TABLE hashtags (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   tag TEXT UNIQUE NOT NULL,
@@ -39,7 +55,17 @@ CREATE TABLE hashtags (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- FORUM POSTS
+ALTER TABLE hashtags ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Public can read hashtags
+CREATE POLICY "Public read hashtags" 
+ON hashtags FOR SELECT 
+TO anon 
+USING (true);
+
+-- ==========================================
+-- 4. FORUM POSTS
+-- ==========================================
 CREATE TABLE forum_posts (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   title TEXT NOT NULL,
@@ -63,7 +89,17 @@ CREATE TABLE forum_posts (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- POST HASHTAGS (Many-to-Many)
+ALTER TABLE forum_posts ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Public can read published posts
+CREATE POLICY "Public read posts" 
+ON forum_posts FOR SELECT 
+TO anon 
+USING (published = true);
+
+-- ==========================================
+-- 5. POST HASHTAGS
+-- ==========================================
 CREATE TABLE post_hashtags (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   post_id UUID REFERENCES forum_posts(id) ON DELETE CASCADE,
@@ -72,7 +108,17 @@ CREATE TABLE post_hashtags (
   UNIQUE(post_id, hashtag_id)
 );
 
--- COMMENTS
+ALTER TABLE post_hashtags ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Public can read
+CREATE POLICY "Public read post_hashtags" 
+ON post_hashtags FOR SELECT 
+TO anon 
+USING (true);
+
+-- ==========================================
+-- 6. COMMENTS
+-- ==========================================
 CREATE TABLE comments (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   post_id UUID REFERENCES forum_posts(id) ON DELETE CASCADE,
@@ -86,7 +132,17 @@ CREATE TABLE comments (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- POST LIKES
+ALTER TABLE comments ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Public can read non-deleted comments
+CREATE POLICY "Public read comments" 
+ON comments FOR SELECT 
+TO anon 
+USING (is_deleted = false);
+
+-- ==========================================
+-- 7. POST LIKES
+-- ==========================================
 CREATE TABLE post_likes (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   post_id UUID REFERENCES forum_posts(id) ON DELETE CASCADE,
@@ -95,7 +151,19 @@ CREATE TABLE post_likes (
   UNIQUE(post_id, user_id)
 );
 
--- COMMENT LIKES
+ALTER TABLE post_likes ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Public can read likes (needed for counts/displaying state?)
+-- Actually usually frontend just needs count. 
+-- But keeping it open for read is mostly harmless.
+CREATE POLICY "Public read post_likes" 
+ON post_likes FOR SELECT 
+TO anon 
+USING (true);
+
+-- ==========================================
+-- 8. COMMENT LIKES
+-- ==========================================
 CREATE TABLE comment_likes (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   comment_id UUID REFERENCES comments(id) ON DELETE CASCADE,
@@ -104,7 +172,16 @@ CREATE TABLE comment_likes (
   UNIQUE(comment_id, user_id)
 );
 
--- NEWSLETTER
+ALTER TABLE comment_likes ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Public read comment_likes" 
+ON comment_likes FOR SELECT 
+TO anon 
+USING (true);
+
+-- ==========================================
+-- 9. NEWSLETTER
+-- ==========================================
 CREATE TABLE newsletter_subscriptions (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   email TEXT UNIQUE NOT NULL,
@@ -116,7 +193,30 @@ CREATE TABLE newsletter_subscriptions (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+ALTER TABLE newsletter_subscriptions ENABLE ROW LEVEL SECURITY;
+-- Strict: No public access.
+
+-- ==========================================
 -- INDICES
-CREATE INDEX idx_users_username ON users(username);
-CREATE INDEX idx_posts_slug ON forum_posts(slug);
-CREATE INDEX idx_posts_published ON forum_posts(published);
+-- ==========================================
+CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);
+CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+CREATE INDEX IF NOT EXISTS idx_posts_slug ON forum_posts(slug);
+CREATE INDEX IF NOT EXISTS idx_posts_published ON forum_posts(published);
+CREATE INDEX IF NOT EXISTS idx_comments_post ON comments(post_id);
+
+-- ==========================================
+-- HELPER VIEWS (For Public Profile Access)
+-- ==========================================
+-- Since 'users' is restricted, we create a secure view for reading author details
+CREATE OR REPLACE VIEW public_user_profiles AS
+SELECT id, username, display_name, avatar_url, bio, role, created_at
+FROM users;
+
+-- Grant access to the view (But public still needs access to underneath table? 
+-- In Supabase, Views run with the privileges of the Creator (Owner) normally, 
+-- NOT the invoker, unless specified. Standard Postgres Views bypass RLS on the table if the view owner has access.)
+-- So this view effectively exposes the data safely.
+
+GRANT SELECT ON public_user_profiles TO anon;
+GRANT SELECT ON public_user_profiles TO authenticated;

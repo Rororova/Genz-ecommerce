@@ -18,13 +18,28 @@ const PORT = process.env.PORT || 3001
 app.use(cors())
 app.use(express.json())
 
+// Health Check Endpoint
+app.get('/api/health', (req, res) => {
+  res.json({
+    success: true,
+    status: 'ok',
+    database: db.name || 'disconnected',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Initialize Database
 db.connect()
   .then(() => {
     initDataCheck();
   })
   .catch(err => {
-    console.error('CRITICAL: Database connection failed completely.', err);
+    console.error('---------------------------------------------------');
+    console.error('CRITICAL: NO DATABASE CONNECTION ESTABLISHED');
+    console.error('Server will run, but API requests requiring DB will fail.');
+    console.error('Please check your .env file and ensure Supabase is configured.');
+    console.error('Error details:', err.message);
+    console.error('---------------------------------------------------');
   });
 
 // Simple password hashing (in production, use bcrypt)
@@ -124,15 +139,9 @@ async function seedInitialData() {
     const { hashtags, ...pData } = post;
     await db.createPost({
       ...pData,
-      author: moderator.id || moderator._id, // Handle varying ID keys
+      author: moderator.id || moderator._id,
       hashtags: hashtags || []
     });
-  }
-
-  // Update hashtag usage counts manually for seed
-  if (db.name === 'MongoDB') {
-    // Mongo checks are done in adapter usually, but basic manual update:
-    // This is optional for seed data.
   }
 
   console.log('Initial data seeded successfully')
