@@ -61,13 +61,13 @@ const CheckoutPayment = () => {
                         <div className="flex flex-col gap-4">
                             <button
                                 onClick={confirmPayment}
-                                className="w-full py-3 bg-lime-400 text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                className="w-full py-3 bg-lime-400 text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                             >
                                 Yes, Complete Order
                             </button>
                             <button
                                 onClick={() => setShowTemplatePopup(false)}
-                                className="w-full py-3 bg-white text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-gray-100 transition-colors"
+                                className="w-full py-3 bg-white text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-gray-100 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                             >
                                 Cancel
                             </button>
@@ -146,7 +146,7 @@ const CheckoutPayment = () => {
                             <button
                                 onClick={handlePaymentClick}
                                 disabled={loading}
-                                className="w-full mt-8 py-5 bg-black text-white font-bold uppercase tracking-wider text-lg border-2 border-black hover:bg-lime-400 hover:text-black transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                className="w-full mt-8 py-5 bg-black text-white font-bold uppercase tracking-wider text-lg border-2 border-black hover:bg-lime-400 hover:text-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
                                 {loading ? (
                                     'Processing'

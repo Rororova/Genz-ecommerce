@@ -146,7 +146,7 @@ const CheckoutDetails = () => {
                                 </div>
                                 <button
                                     type="submit"
-                                    className="px-8 py-4 bg-lime-400 text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                    className="px-8 py-4 bg-lime-400 text-black font-bold uppercase tracking-wider border-2 border-black hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                                 >
                                     Review & Pay
                                 </button>

@@ -42,7 +42,7 @@ const Cart = () => {
                             <p className="text-gray-500 mb-8">Imagine not owning cool chairs. Couldn't be me.</p>
                             <Link
                                 to="/products"
-                                className="inline-block px-8 py-4 bg-black text-white font-bold uppercase tracking-wider border-2 border-black hover:bg-lime-400 hover:text-black transition-colors"
+                                className="inline-block px-8 py-4 bg-black text-white font-bold uppercase tracking-wider border-2 border-black hover:bg-lime-400 hover:text-black transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                             >
                                 Go Shop
                             </Link>
@@ -124,7 +124,7 @@ const Cart = () => {
 
                                     <button
                                         onClick={handleCheckout}
-                                        className="w-full py-4 bg-black text-white font-bold uppercase tracking-wider border-2 border-black hover:bg-white hover:text-black transition-colors shadow-[4px_4px_0px_0px_#fff]"
+                                        className="w-full py-4 bg-black text-white font-bold uppercase tracking-wider border-2 border-black hover:bg-white hover:text-black transition-all shadow-[4px_4px_0px_0px_#fff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#fff]"
                                     >
                                         Proceed to Checkout
                                     </button>
