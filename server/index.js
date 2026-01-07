@@ -576,6 +576,12 @@ app.post('/api/newsletter/subscribe', async (req, res) => {
   }
 })
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+// Export app for Vercel
+export default app;
+
+// Only listen if running directly (not in Vercel)
+if (process.env.NODE_ENV !== 'production' || process.env.VITE_VERCEL_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+  })
+}
