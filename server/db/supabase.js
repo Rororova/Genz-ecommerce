@@ -193,6 +193,14 @@ export const supabaseProvider = {
         const { hashtags, author, ...postData } = data;
         postData.author_id = author; // Normalize
 
+        // If new post is featured, remove featured status from all others
+        if (postData.featured) {
+            await this.client
+                .from('forum_posts')
+                .update({ featured: false })
+                .eq('featured', true);
+        }
+
         const { data: post, error } = await this.client
             .from('forum_posts')
             .insert([postData])
